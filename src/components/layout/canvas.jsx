@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Preload } from '@react-three/drei'
+import { OrbitControls, Stars, Preload } from '@react-three/drei'
 import useStore from '@/helpers/store'
 import { useEffect, useRef } from 'react'
 
@@ -24,10 +24,19 @@ const LCanvas = ({ children }) => {
       style={{
         position: 'absolute',
         top: 0,
+        background: 'black',
       }}
       onCreated={(state) => state.events.connect(dom.current)}
     >
       <LControl />
+      <Stars
+        radius={100} // Radius of the inner sphere (default=100)
+        depth={12} // Depth of area where stars should fit (default=50)
+        count={5000} // Amount of stars (default=5000)
+        factor={8} // Size factor (default=4)
+        saturation={0} // Saturation 0-1 (default=0)
+        fade // Faded dots (default=false)
+      />
       <Preload all />
       {children}
     </Canvas>

@@ -1,8 +1,6 @@
-import dynamic from 'next/dynamic'
-import TestTheory from '@/components/dom/TestTheory'
-import Shader from '@/components/canvas/Shader/Shader'
-import NavBar from '@/components/dom/NavBar'
+
 import Footer from '@/components/dom/Footer'
+import SphereComponent from '@/components/canvas/Sphere'
 
 // Dynamic import is used to prevent a payload when the website start that will include threejs r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
@@ -12,14 +10,14 @@ import Footer from '@/components/dom/Footer'
 //   ssr: false,
 // })
 
+
+
+
 // dom components goes here
 const DOM = () => {
   return (
     <>
-      <NavBar />
-      <TestTheory />
       <Footer />
-      
     </>
     
     
@@ -30,7 +28,7 @@ const DOM = () => {
 const R3F = () => {
   return (
     <>
-      <Shader />
+      <SphereComponent route='/'/>
     </>
   )
 }
@@ -50,7 +48,7 @@ export default Page
 export async function getStaticProps() {
   return {
     props: {
-      title: 'index',
+      title: 'Sphere',
     },
   }
 }

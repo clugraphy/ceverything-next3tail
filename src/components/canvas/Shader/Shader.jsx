@@ -11,7 +11,7 @@ import fragment from './glsl/shader.frag'
 const ColorShiftMaterial = shaderMaterial(
   {
     time: 0,
-    color: new THREE.Color(0.05, 0.0, 0.025),
+    color: new THREE.Color(0.5, 0.7, 0.025),
   },
   vertex,
   fragment
@@ -31,7 +31,7 @@ const Shader = (props) => {
 
   useFrame((state, delta) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x = meshRef.current.rotation.y += 0.01
+      meshRef.current.rotation.x = meshRef.current.rotation.y += 0.001
     }
     if (meshRef.current.material) {
       meshRef.current.material.uniforms.time.value +=
@@ -44,14 +44,17 @@ const Shader = (props) => {
       ref={meshRef}
       scale={hovered ? 1.1 : 1}
       onClick={() => {
-        router.push(`/box`)
+        //on click action 
+        router.push(`/sphere`)
       }}
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}
       {...props}
     >
-      <boxBufferGeometry args={[1, 1, 1]} />
+      <sphereBufferGeometry args={[2,16,16]}/>
+      {/* <boxBufferGeometry args={[2,8,8]}/> */}
       {/* @ts-ignore */}
+      
       <colorShiftMaterial key={ColorShiftMaterial.key} time={3} />
     </mesh>
   )
