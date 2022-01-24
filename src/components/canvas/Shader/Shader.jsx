@@ -40,23 +40,31 @@ const Shader = (props) => {
   })
 
   return (
-    <mesh
-      ref={meshRef}
-      scale={hovered ? 1.1 : 1}
-      onClick={() => {
-        //on click action 
-        router.push(`/sphere`)
-      }}
-      onPointerOver={(e) => setHover(true)}
-      onPointerOut={(e) => setHover(false)}
-      {...props}
-    >
-      <sphereBufferGeometry args={[2,16,16]}/>
-      {/* <boxBufferGeometry args={[2,8,8]}/> */}
-      {/* @ts-ignore */}
+    <>
+      <mesh
+        ref={meshRef}
+        scale={hovered ? 1.1 : 1}
+        onClick={() => {
+          //on click action 
+          router.push(`/sphere`)
+        }}
+        onPointerOver={(e) => setHover(true)}
+        onPointerOut={(e) => setHover(false)}
+        {...props}
+      >
+        {/* <sphereBufferGeometry args={[2,16,16]}/> */}
+        {/* <boxBufferGeometry args={[2,8,8]}/> */}
+        {/* @ts-ignore */}
+        
+        <colorShiftMaterial key={ColorShiftMaterial.key} time={3} />
+      </mesh>
       
-      <colorShiftMaterial key={ColorShiftMaterial.key} time={3} />
-    </mesh>
+      <mesh>
+        <boxBufferGeometry attach='geometry' args={[1,1,1]} />
+        <meshStandardMaterial attach='material'/>
+      </mesh>
+    </>
+   
   )
 }
 

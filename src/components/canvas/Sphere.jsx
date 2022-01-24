@@ -22,10 +22,10 @@ const SphereComponent = ({ route }) => {
         onClick={() => router.push(route)}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
-        scale={hovered ? 1.6 : 1}
+        scale={hovered ? 1.2 : 1}
       >
-        <sphereBufferGeometry args={[6, 12, 8]} />
-        <meshPhysicalMaterial color={route === '/' ? 'green' : 'blue'} />
+        <sphereBufferGeometry args={[3, 32, 32]} />
+        <meshPhysicalMaterial color={hovered ? 'green' : 'blue'} />
       </mesh>
       <directionalLight position={[5, 5, 5]} />
       <ambientLight />
