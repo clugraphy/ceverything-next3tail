@@ -12,6 +12,7 @@ import Footer from '@/components/dom/Footer'
 //   ssr: false,
 // })
 
+
 // dom components goes here
 const DOM = () => {
   return (
@@ -19,10 +20,10 @@ const DOM = () => {
       <NavBar />
       <TestTheory />
       <Footer />
-      
+
     </>
-    
-    
+
+
   )
 }
 

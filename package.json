@@ -26,6 +26,7 @@
     "babel-plugin-glsl": "^1.0.0",
     "babel-plugin-styled-components": "^2.0.2",
     "glsl-random": "^0.0.5",
+    "magicmouse.js": "^1.2.1",
     "next": "^12.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

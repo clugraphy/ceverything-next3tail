@@ -7,6 +7,8 @@ import partition from '@/helpers/partition'
 import '@/styles/index.css'
 import dynamic from 'next/dynamic'
 
+
+
 const LCanvas = dynamic(() => import('@/components/layout/canvas'), {
   ssr: false,
 })
@@ -30,7 +32,6 @@ function App({ Component, pageProps = { title: 'index' } }) {
   }, [router])
 
   const child = Component(pageProps).props.children
-
   return (
     <>
       <Header title={pageProps.title} />
@@ -42,5 +43,6 @@ function App({ Component, pageProps = { title: 'index' } }) {
     </>
   )
 }
+
 
 export default App
